@@ -1,8 +1,14 @@
+import time
 import turtle #Successfully installed PyYAML-6.0 turtle-0.0.1
 #import math
 import random
 wn = turtle.Screen()
 wn.bgcolor('black')
+
+class MainVar():#p.a.c.v.
+    start_size_num = 10
+    size_change = 10
+    circles_inside = 7
 
 
 
@@ -15,29 +21,24 @@ def randColor():
     return colour
 
 
-def drawCircle(t, size):
-    for i in range(10):
+def drawCircle(t, size, circles_inside):
+    for i in range(circles_inside):
         t.circle(size)
-        size = size - size_differ_num
+        size = size - 2# #MainVar.size_differ_num += 1
         print("size ", size)
 
-def drawSpecial(t, size, repeat):
+def drawSpecial(t, size, repeat, circles_inside):
     for i in range(repeat):
-        drawCircle(t, size)
+        drawCircle(t, size, circles_inside)
         t.right(360/repeat)
-
-
-size_differ_num = 1
-size_num = 10
 
 while(True):
     Model = turtle.Turtle()
     Model.speed(0)
     Model.color(randColor())
-    rotate = int(360)
-    drawSpecial(Model,size_num,10)
-    size_differ_num += 1
-    size_num += 10
+    drawSpecial(Model,MainVar.start_size_num,10, MainVar.circles_inside)
+    MainVar.start_size_num += MainVar.size_change
+
 
 
 
